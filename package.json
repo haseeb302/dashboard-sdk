@@ -1,0 +1,11 @@
+{
+  "name": "hsb-dashboard-sdk",
+  "version": "1.0.0",
+  "description": "SDK for dashboard visualisation",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abdul Haseeb mianhaseeeb302@gmail.com",
+  "license": "ISC"
+}
