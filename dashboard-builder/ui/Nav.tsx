@@ -33,7 +33,7 @@ const _links = [
 export default function Nav() {
   const [links, setLinks] = useState(_links);
 
-  const toggleSubMenu = (link) => {
+  const toggleSubMenu = (link: any) => {
     let updatedLinks = links.map((l) => {
       if (l.name === link.name) {
         l.subMenuOpen = !l.subMenuOpen;
