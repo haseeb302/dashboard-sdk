@@ -33,7 +33,7 @@ interface WorldMap {
   countryCodeField: string;
 }
 
-export {
+export type {
   Dashboard as DashboardType,
   Row as RowType,
   Cell as CellType,

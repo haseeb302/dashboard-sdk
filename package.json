@@ -1,11 +1,23 @@
 {
   "name": "hsb-dashboard-sdk",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "SDK for dashboard visualisation",
-  "main": "index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
   },
+  "keywords": [
+    "Dashboard",
+    "Visualisation",
+    "SDK",
+    "Recharts"
+  ],
   "author": "Abdul Haseeb mianhaseeeb302@gmail.com",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
 }

@@ -1,0 +1,8 @@
+/node_modules
+/dashboard-builder
+/src
+.env
+.DS_Store
+
+tsconfig.json
+tsup.config.ts

@@ -4,10 +4,10 @@ import {
   RowType,
   BarChartType,
   PieChartType,
-} from "./utils/interfaces";
+} from "./utils/types";
 
 class Dashboard implements DashboardType {
-  rows: Row[];
+  rows: Row[] = [];
 
   constructor(row: Row[]) {
     this.rows.push(...row);
@@ -37,7 +37,7 @@ class Dashboard implements DashboardType {
 
 class Cell implements CellType {
   colspan: number | string;
-  view: BarChartType | PieChartType;
+  view: BarChartType | PieChartType | undefined;
 
   constructor(
     view?: BarChartType | PieChartType,
