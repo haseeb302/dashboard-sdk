@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import clsx from "clsx";
 
 const _links = [
   { name: "Welcome", href: "/" },
@@ -40,7 +42,7 @@ const _links = [
 
 export default function Nav() {
   const [links, setLinks] = useState(_links);
-
+  const pathname = usePathname();
   const toggleSubMenu = (link: any) => {
     let updatedLinks = links.map((l) => {
       if (l.name === link.name) {
@@ -60,9 +62,12 @@ export default function Nav() {
             <div key={link.name} className="bg-gray-50">
               <button
                 onClick={() => toggleSubMenu(link)}
-                className={
-                  "flex h-[32px] items-center grow w-full justify-between gap-2 rounded-md p-3 text-md hover:bg-sky-100 hover:text-blue-600 md:flex-none"
-                }
+                className={clsx(
+                  "flex h-[32px] items-center grow w-full justify-between gap-2 rounded-md p-3 text-md hover:bg-sky-100 hover:text-blue-600 md:flex-none",
+                  {
+                    "bg-sky-100 text-blue-600": pathname === link.href,
+                  }
+                )}
               >
                 <p className="font-bold hidden md:block">{link.name}</p>
 
@@ -95,9 +100,12 @@ export default function Nav() {
             <Link
               key={link.name}
               href={link.href}
-              className={
-                "flex h-[32px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-md hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
-              }
+              className={clsx(
+                "flex h-[32px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-md hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3",
+                {
+                  "bg-sky-100 text-blue-600": pathname === link.href,
+                }
+              )}
             >
               <p className="hidden font-bold md:block">{link.name}</p>
             </Link>

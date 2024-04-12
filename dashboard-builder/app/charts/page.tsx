@@ -13,12 +13,20 @@ export default function page() {
 
       <div className="container mx-auto mt-8">
         <p className="mb-2">
-          These blocks when used together can help build a dashboard UI to
-          visualise charts.
+          Charts are used in cell objects to render the data and visualise it.
+          The charts available in this SDK are{" "}
+          <span className="bg-gray-800 rounded-md text-gray-300 py-1 px-2 mx-1">
+            BarChart
+          </span>
+          and
+          <span className="bg-gray-800 rounded-md text-gray-300 py-1 px-2 mx-1">
+            PieChart
+          </span>
+          . See the explanation below to see how you can create and use them.
         </p>
         <section className="mb-8" id="BarChart">
-          <h2 className="text-2xl font-semibold mb-4">Bar Charts</h2>
-          <p className="mb-2">Instantiate the Dashboard class.</p>
+          <h2 className="text-2xl font-semibold mb-4">Bar Chart</h2>
+          <p className="mb-2">Instantiate the Bar Chart object.</p>
           <div className="p-2 mb-4">
             <SyntaxHighlighter
               className="rounded-lg"
@@ -28,15 +36,19 @@ export default function page() {
               {barChart}
             </SyntaxHighlighter>
           </div>
-          <p className="mb-2">
-            Dashboard contains rows so initially to see the content we need to
-            provide rows to the dashboard object.
+          <p className="leading-8">
+            <span className="bg-gray-800 rounded-md text-gray-300 py-1 px-2 mx-1">
+              BarChart
+            </span>
+            takes a unique ID and a title to show on the chart. This chart also
+            takes in further arguements like an array of strings i.e
+            metricFieldIDs and groupByFieldIDs.
           </p>
         </section>
 
         <section className="mb-8" id="PieChart">
           <h2 className="text-2xl font-semibold mb-4">Pie Chart</h2>
-          <p className="mb-2">Instantiate the Dashboard class.</p>
+          <p className="mb-2">Instantiate the PieChart object.</p>
           <div className="p-2 mb-4">
             <SyntaxHighlighter
               className="rounded-lg"
@@ -46,9 +58,13 @@ export default function page() {
               {pieChart}
             </SyntaxHighlighter>
           </div>
-          <p className="mb-2">
-            Dashboard contains rows so initially to see the content we need to
-            provide rows to the dashboard object.
+          <p className="leading-8">
+            <span className="bg-gray-800 rounded-md text-gray-300 py-1 px-2 mx-1">
+              PieChart
+            </span>
+            takes a unique ID and a title to show on the chart. This chart also
+            takes in further arguements like an array of strings i.e
+            metricFieldIDs and groupByFieldIDs.
           </p>
         </section>
       </div>

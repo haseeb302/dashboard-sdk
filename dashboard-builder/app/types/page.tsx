@@ -12,13 +12,8 @@ export default function page() {
       </header>
 
       <div className="container mx-auto mt-8">
-        <p className="mb-2">
-          These blocks when used together can help build a dashboard UI to
-          visualise charts.
-        </p>
         <section className="mb-8" id="BarChart">
           <h2 className="text-2xl font-semibold mb-4">All Types Available</h2>
-          <p className="mb-2">Instantiate the Dashboard class.</p>
           <div className="p-2 mb-4">
             <SyntaxHighlighter
               className="rounded-lg"
@@ -28,10 +23,6 @@ export default function page() {
               {types}
             </SyntaxHighlighter>
           </div>
-          <p className="mb-2">
-            Dashboard contains rows so initially to see the content we need to
-            provide rows to the dashboard object.
-          </p>
         </section>
       </div>
     </div>

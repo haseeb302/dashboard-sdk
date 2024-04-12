@@ -23,6 +23,11 @@ export default function Page() {
   const dashboard = new Dashboard([firstRow, secondRow]);
   console.log(dashboard);
 
+  const addedRow = new Row("Heading 3", [emptyCell]);
+  dashboard.addRow(addedRow);
+
+  console.log(dashboard);
+
   const setColSpan = (col) => {
     switch (col) {
       case 3:
@@ -42,6 +47,30 @@ export default function Page() {
 
   return (
     <div className="p-5">
+      <header className="bg-blue-400 p-4 rounded-md mb-3">
+        <div className="container mx-auto">
+          <h1 className="text-white text-3xl font-bold">Example</h1>
+        </div>
+      </header>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold my-2">Code</h2>
+        <p className="mb-2">
+          The below code is the full example of how to use this SDK with a React
+          component.
+        </p>
+        <div className="p-2 mb-2">
+          {/* <pre> */}
+          <SyntaxHighlighter
+            className="rounded-lg"
+            language="javascript"
+            style={atomOneDarkReasonable}
+          >
+            {example}
+          </SyntaxHighlighter>
+          {/* </pre> */}
+        </div>
+      </section>
+
       <h2 className="text-2xl font-semibold mb-4">Preview</h2>
       <div className="border px-8 rounded-lg mb-5">
         {dashboard.rows.map((row, index) => (
@@ -49,7 +78,7 @@ export default function Page() {
             <h1 className="text-3xl font-extrabold">{row.heading}</h1>
             <hr />
             <div className="grid grid-cols-12 gap-3 mt-3">
-              {row.cells.map((cell, index) => (
+              {row.cells?.map((cell, index) => (
                 <div
                   key={index}
                   className={`${setColSpan(cell.colspan)} border p-5`}
@@ -74,19 +103,6 @@ export default function Page() {
           </div>
         ))}
       </div>
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Code</h2>
-        <div className="p-4 border rounded">
-          {/* <pre> */}
-          <SyntaxHighlighter
-            language="javascript"
-            style={atomOneDarkReasonable}
-          >
-            {example}
-          </SyntaxHighlighter>
-          {/* </pre> */}
-        </div>
-      </section>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { importAll, instantiate, npm } from "@/utils/codes";
+import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDarkReasonable } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
@@ -17,7 +18,15 @@ export default function page() {
         </p>
         <section className="mb-8" id="Installation">
           <h2 className="text-2xl font-semibold mb-4">Installation</h2>
-          <p className="mb-2">Install the SDK package via npm</p>
+          <p className="mb-2">
+            Install the SDK package via{" "}
+            <Link
+              href={"https://www.npmjs.com/package/hsb-dashboard-sdk"}
+              className="text-blue-600 underline"
+            >
+              npm
+            </Link>
+          </p>
           <div className="p-2 mb-4">
             <SyntaxHighlighter
               className="rounded-lg"
