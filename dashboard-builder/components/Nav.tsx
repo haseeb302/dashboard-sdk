@@ -25,9 +25,10 @@ const _links = [
       { name: "BarChart", href: "/blocks#BarChart" },
       { name: "PieChart", href: "/blocks#PieChart" },
     ],
-    subMenuOpen: false,
+    subMenuOpen: true,
   },
   { name: "Example", href: "/dashboard-example" },
+  { name: "Types", href: "/types" },
 ];
 
 export default function Nav() {
@@ -49,16 +50,16 @@ export default function Nav() {
       {links.map((link) => {
         if (link?.subMenu?.length > 0) {
           return (
-            <>
+            <div key={link.name} className="bg-gray-50">
               <button
                 onClick={() => toggleSubMenu(link)}
                 className={
-                  "flex h-[32px] grow items-center justify-between gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none"
+                  "flex h-[32px] items-center grow w-full justify-between gap-2 rounded-md p-3 text-md hover:bg-sky-100 hover:text-blue-600 md:flex-none"
                 }
               >
                 <p className="font-bold hidden md:block">{link.name}</p>
 
-                <div className={`flex`}>
+                <div>
                   <ChevronDown className="w-4 h-4" />
                 </div>
               </button>
@@ -71,7 +72,7 @@ export default function Nav() {
                         key={idx}
                         href={subItem.href}
                         className={
-                          "flex h-[32px] items-center rounded-md bg-gray-50 p-4 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none"
+                          "flex h-[32px] items-center rounded-md bg-gray-50 p-4 text-md text-gray-700 hover:bg-sky-100 hover:text-blue-600 md:flex-none"
                         }
                       >
                         <p className="hidden md:block">{subItem.name}</p>
@@ -80,7 +81,7 @@ export default function Nav() {
                   })}
                 </>
               )}
-            </>
+            </div>
           );
         } else {
           return (
@@ -88,10 +89,10 @@ export default function Nav() {
               key={link.name}
               href={link.href}
               className={
-                "flex h-[32px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+                "flex h-[32px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-md hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
               }
             >
-              <p className="hidden md:block">{link.name}</p>
+              <p className="hidden font-bold md:block">{link.name}</p>
             </Link>
           );
         }

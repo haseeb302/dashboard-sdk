@@ -11,7 +11,7 @@ export default function Page() {
   const pieChart = new PieChart("1", "Pie Chart Title", "field2", "groupBy1");
 
   const firstCell = new Cell(barChart, 6);
-  const secondCell = new Cell(pieChart, 6);
+  const secondCell = new Cell(pieChart, 8);
   const emptyCell = new Cell(undefined);
 
   const firstRow = new Row("Heading 1", [firstCell, emptyCell]);
@@ -19,6 +19,24 @@ export default function Page() {
 
   const dashboard = new Dashboard([firstRow, secondRow]);
   console.log(dashboard);
+
+  const setColSpan = (col) => {
+    switch (col) {
+      case 3:
+        return "col-span-3";
+      case 4:
+        return "col-span-4";
+      case 6:
+        return "col-span-6";
+      case 8:
+        return "col-span-8";
+      case 12:
+        return "col-span-12";
+      default:
+        return "col-span-4";
+    }
+  };
+
   return (
     <div className="p-5">
       <h2 className="text-2xl font-semibold mb-4">Preview</h2>
@@ -31,11 +49,7 @@ export default function Page() {
               {row.cells.map((cell, index) => (
                 <div
                   key={index}
-                  className={
-                    cell.colspan
-                      ? `col-span-${cell.colspan} border p-5`
-                      : `col-span-4 border p-5`
-                  }
+                  className={`${setColSpan(cell.colspan)} border p-5`}
                 >
                   <div>
                     {cell.view?.title ? (
@@ -46,6 +60,7 @@ export default function Page() {
                       <h3 className="text-xl font-semibold">Empty Cell</h3>
                     )}
                   </div>
+                  <p className="text-sm">(span = {cell?.colspan})</p>
                   <p>{cell.view?.groupByFields}</p>
                   <p>{cell.view?.metricFields}</p>
                   <p>{cell.view?.groupByFieldId}</p>

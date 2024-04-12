@@ -1,8 +1,8 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Link from "next/link";
-import Nav from "@/ui/Nav";
+import Nav from "@/components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,11 +37,6 @@ export default function RootLayout({
             </div>
           </div>
           <div className="flex-grow p-3 md:overflow-y-auto md:p-6">
-            {/* <div className="border">
-              <div className="flex justify-between h-16 items-center px-4">
-                <Link href={"/dashboard-example"}></Link>
-              </div>
-            </div> */}
             {children}
           </div>
         </main>
