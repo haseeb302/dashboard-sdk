@@ -22,8 +22,15 @@ const _links = [
       { name: "Dashboard", href: "/blocks#Dashboard" },
       { name: "Row", href: "/blocks#Row" },
       { name: "Cell", href: "/blocks#Cell" },
-      { name: "BarChart", href: "/blocks#BarChart" },
-      { name: "PieChart", href: "/blocks#PieChart" },
+    ],
+    subMenuOpen: true,
+  },
+  {
+    name: "Charts",
+    href: "/charts",
+    subMenu: [
+      { name: "BarChart", href: "/charts#BarChart" },
+      { name: "PieChart", href: "/charts#PieChart" },
     ],
     subMenuOpen: true,
   },
